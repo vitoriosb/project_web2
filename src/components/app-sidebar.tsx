@@ -1,5 +1,4 @@
-import { Calendar, Home, Inbox, Search, Settings } from "lucide-react";
-
+// src/components/app-sidebar.tsx
 import {
   Sidebar,
   SidebarContent,
@@ -10,6 +9,17 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
+import {
+  BookMarkedIcon,
+  Calendar,
+  Home,
+  Hourglass,
+  Inbox,
+  RadicalIcon,
+  Search,
+  Settings,
+  User2Icon,
+} from "lucide-react";
 import { ModeToggle } from "./modle-toggle";
 
 const items = [
@@ -19,8 +29,8 @@ const items = [
     icon: Home,
   },
   {
-    title: "Usuarios",
-    url: "users",
+    title: "Empregados",
+    url: "employees",
     icon: Inbox,
   },
   {
@@ -37,6 +47,26 @@ const items = [
     title: "Deliveries",
     url: "deliveries",
     icon: Settings,
+  },
+  {
+    title: "processo de previsão",
+    url: "forecastProcess",
+    icon: RadicalIcon,
+  },
+  {
+    title: "Custo Hora",
+    url: "hourlyCostHistories",
+    icon: Hourglass,
+  },
+  {
+    title: "Projetos de usuario",
+    url: "userProject",
+    icon: BookMarkedIcon,
+  },
+  {
+    title: "Usuarios",
+    url: "users",
+    icon: User2Icon,
   },
 ];
 
