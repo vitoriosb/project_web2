@@ -6,11 +6,10 @@ import { getUsers } from "@/services/http/users/getUsers";
 
 import { useEffect, useState } from "react";
 
-interface User {
+export interface User {
   userCode: string;
   name: string;
   email: string;
-  // Adicione outros campos relevantes aqui
 }
 
 export default function Users() {

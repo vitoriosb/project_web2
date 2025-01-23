@@ -30,7 +30,7 @@ export default function Projects() {
     reset,
     formState: { errors },
   } = useForm<ProjectProps>();
-  const [projectList, setProjectList] = useState<Project[]>([]);
+  const [projectList, setProjectList] = useState<ProjectProps[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
 

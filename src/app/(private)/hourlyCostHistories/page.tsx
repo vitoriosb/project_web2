@@ -13,18 +13,13 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { createHourlyCostHistory } from "@/services/http/hourlyCostHistory/createHourlyCostHistory";
+import {
+  createHourlyCostHistory,
+  createHourlyCostHistoryProps,
+} from "@/services/http/hourlyCostHistory/createHourlyCostHistory";
 import { getHourlyCostHistories } from "@/services/http/hourlyCostHistory/getHourlyCostHistories";
 import { useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-
-interface IFormInput {
-  date: string;
-  userID: string;
-  projectId: string;
-  hours: number;
-  costValue: number;
-}
 
 export default function HourlyCostHistories() {
   const {
@@ -32,8 +27,10 @@ export default function HourlyCostHistories() {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<IFormInput>();
-  const [costHistoryList, setCostHistoryList] = useState<IFormInput[]>([]);
+  } = useForm<createHourlyCostHistoryProps>();
+  const [costHistoryList, setCostHistoryList] = useState<
+    createHourlyCostHistoryProps[]
+  >([]);
   const [error, setError] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -50,7 +47,9 @@ export default function HourlyCostHistories() {
     fetchCostHistories();
   }, []);
 
-  const onSubmit: SubmitHandler<IFormInput> = async (data) => {
+  const onSubmit: SubmitHandler<createHourlyCostHistoryProps> = async (
+    data
+  ) => {
     try {
       await createHourlyCostHistory(data);
       reset();

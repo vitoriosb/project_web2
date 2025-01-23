@@ -16,7 +16,7 @@ interface getProjectsPromise {
   durationExpected: number;
 }
 
-export async function getProjects(): Promise<getProjectsPromise> {
+export async function getProjects(): Promise<getProjectsPromise[]> {
   const res = await api.get("/api/v1/project");
   console.log(res.data);
   return res.data;

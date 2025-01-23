@@ -22,16 +22,16 @@ import { getFinancialLaunches } from "@/services/http/financial/getFinancialLaun
 import { useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
-interface IFormInput extends createFinancialLaunchProps {}
-
 export default function Financial() {
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<IFormInput>();
-  const [financialList, setFinancialList] = useState<IFormInput[]>([]);
+  } = useForm<createFinancialLaunchProps>();
+  const [financialList, setFinancialList] = useState<
+    createFinancialLaunchProps[]
+  >([]);
   const [error, setError] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -48,7 +48,7 @@ export default function Financial() {
     fetchFinancialLaunches();
   }, []);
 
-  const onSubmit: SubmitHandler<IFormInput> = async (data) => {
+  const onSubmit: SubmitHandler<createFinancialLaunchProps> = async (data) => {
     try {
       await createFinancialLaunch(data);
       reset();
@@ -233,12 +233,6 @@ export default function Financial() {
                   <div>{launch.hours} horas</div>
                   <div>R$ {launch.costValue}</div>
                 </div>
-                <Button
-                  onClick={() => handleDelete(launch.id)}
-                  className="bg-red-500 text-white"
-                >
-                  Deletar
-                </Button>
               </div>
             ))}
         </div>

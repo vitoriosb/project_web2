@@ -39,6 +39,7 @@ export default function Deliveries() {
     async function fetchDeliveries() {
       try {
         const deliveries = await getDeliveries();
+
         setDeliveryList(deliveries);
       } catch (error) {
         setError("Erro ao buscar entregas");
